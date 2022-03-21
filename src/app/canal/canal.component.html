@@ -1,0 +1,72 @@
+<h4 style="text-align: center;">Canales Masivos</h4>
+<br><br><br><br>
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-6">
+            <form [formGroup]="myForm">
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Telefono</label>
+                  <hr>
+                  <div class="row">
+                      <div class="col-6">
+                        <input formControlName="number"
+                        type="email" class="form-control" id="exampleFormControlInput1" placeholder="9999-555">
+                      </div>
+                      <div class="col-6">
+                        <button (click)="agregarNumero()"
+                        type="button" class="btn btn-primary">+</button>
+                      </div>
+                  </div>
+                 
+                </div>
+               
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Mensajes</label>
+                  <textarea formControlName="message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+              </form>
+              <div class="row">
+                  <div class="col-4">
+                    <button type="button" (click)="verNotificacion()" class="btn notification">Notificacion</button>
+                  </div>
+                  <div class="col-4">
+                    <button  type="button" class="btn date">Fecha</button>
+                  </div>
+                  <div class="col-4">
+                    <button mat-button (click)="openDialog()" class="btn btn-success" >Enviar Mensajes</button>
+                  </div>
+              </div>
+        </div>
+
+
+
+        <div class="col-6">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Telefono</th>
+                    <th scope="col">Mensaje</th>
+                  </tr>
+                </thead>
+                
+              </table>
+
+              <div class="row">
+                  <div class="col-6">
+                    <ul class="list-group" *ngFor="let num of telefonos">
+                        <li class="list-group-item">{{num}}</li>
+                       
+                      </ul>
+                  </div>
+                  <div class="col-6" *ngIf="mostrar">
+                    <ul class="list-group" *ngFor="let item of informacion">
+                        <li class="list-group-item">{{item.mensaje}}</li>
+                        
+                      </ul>
+                  </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+
